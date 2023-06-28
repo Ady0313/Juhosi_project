@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Form</title>
+  <link rel="stylesheet" href="style.css">
+
+ 
+</head>
+<body>
+  <h2>Customer Form</h2>
+  <form id="customerForm">
+    <label for="orderDate">Order Date:</label>
+    <input type="date" id="orderDate" required><br><br>
+
+    <label for="company">Company:</label>
+    <input type="text" id="company" required><br><br>
+
+    <label for="owner">Owner:</label>
+    <input type="text" id="owner" required><br><br>
+
+    <label for="item">Item:</label>
+    <input type="text" id="item" required><br><br>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" required><br><br>
+
+    <label for="weight">Weight:</label>
+    <input type="number" step="0.01" id="weight" required><br><br>
+
+    <label for="request">Request for Shipment:</label>
+    <input type="text" id="request" required><br><br>
+
+    <label for="trackingID">Tracking ID:</label>
+    <input type="text" id="trackingID" required><br><br>
+
+    <label for="shipmentSize">Shipment Size (LxBxH):</label>
+    <input type="text" id="shipmentSize" required><br><br>
+
+    <label for="boxCount">Box Count:</label>
+    <input type="number" id="boxCount" required><br><br>
+
+    <label for="specification">Specification:</label>
+    <input type="text" id="specification" required><br><br>
+
+    <label for="checklistQuantity">Checklist Quantity:</label>
+    <input type="text" id="checklistQuantity" required><br><br>
+
+    <input type="button" value="Submit" onclick="validateForm()">
+  </form>
+
+
+  <script>
+    function validateForm() {
+      // Retrieve the form values
+      var orderDate = document.getElementById("orderDate").value;
+      var company = document.getElementById("company").value;
+      var owner = document.getElementById("owner").value;
+      var item = document.getElementById("item").value;
+      var quantity = document.getElementById("quantity").value;
+      var weight = document.getElementById("weight").value;
+      var request = document.getElementById("request").value;
+      var trackingID = document.getElementById("trackingID").value;
+      var shipmentSize = document.getElementById("shipmentSize").value;
+      var boxCount = document.getElementById("boxCount").value;
+      var specification = document.getElementById("specification").value;
+      var checklistQuantity = document.getElementById("checklistQuantity").value;
+
+      // Perform client-side form validations
+      // Implement your custom validation logic here
+      // Example validations are provided for reference
+      if (orderDate === "") {
+        alert("Please select an Order Date.");
+        return false;
+      }
+
+      if (!company.match(/^[a-zA-Z0-9\s]+$/)) {
+        alert("Company should only contain alphanumeric characters.");
+        return false;
+      }
+
+      if (!owner.match(/^[a-zA-Z0-9\s]+$/)) {
+        alert("Owner should only contain alphanumeric characters.");
+        return false;
+      }
+
+      if (item === "") {
+        alert("Please enter an Item.");
+        return false;
+      }
+
+      if (isNaN(quantity) || quantity === "") {
+        alert("Quantity should be a valid integer.");
+        return false;
+      }
+
+      if (isNaN(weight) || weight === "") {
+        alert("Weight should be a valid float.");
+        return false;
+      }
+
+      // If all validations pass, submit the form to the server for further processing
+      // Implement your server-side code to handle form submission and MySQL storage
+      // You'll need to send the form data to the server using AJAX or by submitting the form to a PHP script
+
+      // Uncomment the following line to submit the form (replace "submit.php" with your server-side script URL)
+      // document.getElementById("customerForm").action = "submit.php";
+      // document.getElementById("customerForm").submit();
+
+      // For demonstration purposes, alert the form data instead of submitting it
+      alert("Form submitted successfully:\n" +
+        "Order Date: " + orderDate + "\n" +
+        "Company: " + company + "\n" +
+        "Owner: " + owner + "\n" +
+        "Item: " + item + "\n" +
+        "Quantity: " + quantity + "\n" +
+        "Weight: " + weight + "\n" +
+        "Request for Shipment: " + request + "\n" +
+        "Tracking ID: " + trackingID + "\n" +
+        "Shipment Size: " + shipmentSize + "\n" +
+        "Box Count: " + boxCount + "\n" +
+        "Specification: " + specification + "\n" +
+        "Checklist Quantity: " + checklistQuantity);
+    }
+  </script>
+  </body>
+</html>

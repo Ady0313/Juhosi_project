@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <h2>Admin Page</h2>
+  
+  <table>
+    <tr>
+      <th>Item/Customer</th>
+      <th>Quantity</th>
+      <th>Weight</th>
+      <th>Box Count</th>
+    </tr>
+    
+    <tr>
+      <td>Customer1</td>
+      <td id="customer1-quantity"></td>
+      <td id="customer1-weight"></td>
+      <td id="customer1-boxcount"></td>
+    </tr>
+    <tr>
+      <td>Customer2</td>
+      <td id="customer2-quantity"></td>
+      <td id="customer2-weight"></td>
+      <td id="customer2-boxcount"></td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td id="total-quantity"></td>
+      <td id="total-weight"></td>
+      <td id="total-boxcount"></td>
+    </tr>
+  </table>
+
+  <script>
+    // Retrieve the data from the database and populate the table
+    // You would need to implement the server-side code to fetch data from the database
+    // and pass it to this JavaScript code to populate the table dynamically
+
+    // Example data
+    var customer1Quantity = 10;
+    var customer1Weight = 50;
+    var customer1BoxCount = 3;
+
+    var customer2Quantity = 20;
+    var customer2Weight = 40;
+    var customer2BoxCount = 5;
+
+    // Calculate the totals
+    var totalQuantity = customer1Quantity + customer2Quantity;
+    var totalWeight = customer1Weight + customer2Weight;
+    var totalBoxCount = customer1BoxCount + customer2BoxCount;
+
+    // Populate the table cells with the data
+    document.getElementById("customer1-quantity").textContent = customer1Quantity;
+    document.getElementById("customer1-weight").textContent = customer1Weight;
+    document.getElementById("customer1-boxcount").textContent = customer1BoxCount;
+
+    document.getElementById("customer2-quantity").textContent = customer2Quantity;
+    document.getElementById("customer2-weight").textContent = customer2Weight;
+    document.getElementById("customer2-boxcount").textContent = customer2BoxCount;
+
+    document.getElementById("total-quantity").textContent = totalQuantity;
+    document.getElementById("total-weight").textContent = totalWeight;
+    document.getElementById("total-boxcount").textContent = totalBoxCount;
+  </script>
+ <style>
+    /* Additional styling for the table */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  
+    /* Color scheme */
+    tr.weight-row {
+      background-color: #d7f0f7;
+    }
+    td.item-customer {
+      background-color: #ffffcc;
+      font-weight: bold;
+    }
+  </style>
+</body>
+</html>
